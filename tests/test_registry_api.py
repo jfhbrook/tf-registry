@@ -2,24 +2,7 @@
 
 import pytest
 
-from tf_registry import (
-    Input,
-    Meta,
-    Metrics,
-    Module,
-    ModuleInfo,
-    ModuleList,
-    ModuleVersions,
-    Output,
-    Provider,
-    Resource,
-    ShortModule,
-    ShortRoot,
-    ShortSubmodule,
-    Summary,
-    Version,
-    VersionList,
-)
+from tf_registry import Meta, Metrics, ModuleList, Summary
 
 
 @pytest.mark.vcr
@@ -84,8 +67,8 @@ def test_download_url(client) -> None:
     url = client.download_url("hashicorp", "consul", "aws", "0.11.0")
 
     assert (
-        url
-        == "git::https://github.com/hashicorp/terraform-aws-consul?ref=e9ceb573687c3d28516c9e3714caca84db64a766"
+        url == "git::https://github.com/hashicorp/terraform-aws-consul?"
+        "ref=e9ceb573687c3d28516c9e3714caca84db64a766"
     )
 
 
@@ -94,8 +77,8 @@ def test_latest_download_url(client) -> None:
     url = client.latest_download_url("hashicorp", "consul", "aws")
 
     assert (
-        url
-        == "git::https://github.com/hashicorp/terraform-aws-consul?ref=e9ceb573687c3d28516c9e3714caca84db64a766"
+        url == "git::https://github.com/hashicorp/terraform-aws-consul?"
+        "ref=e9ceb573687c3d28516c9e3714caca84db64a766"
     )
 
 
